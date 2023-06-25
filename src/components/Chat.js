@@ -1,11 +1,17 @@
 "use client";
 
 import { useChat } from "ai/react";
+import { useEffect } from "react";
 
 export function Chat() {
   const { messages, input, handleSubmit, handleInputChange } = useChat();
 
   const isAssistant = (role) => role === "assistant";
+
+  useEffect(() => {
+    const chat = document.getElementById("chat");
+    chat.scrollTop = chat.scrollHeight;
+  }, [messages]);
 
   return (
     <section className="md:max-w-xl">
@@ -16,7 +22,9 @@ export function Chat() {
       </p>
 
       <article
-        className="flex flex-col overflow-y-auto max-h-[80vh] mt-5 mb-10"
+        className="flex flex-col overflow-y-auto max-h-[50vh] mt-5 mb-10"
+        style={{ scrollBehavior: "smooth" }}
+        id="chat"
       >
         {messages.map((message, index) => (
           <div
