@@ -6,11 +6,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "🤖 Chatbot Tesis",
   description: "Chatbot para ayudar a corregir tesis. Ejercicio practico.",
+  image: "/chatbot-tutor-ai.jpg",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={inter.className}>
         {children}
 
